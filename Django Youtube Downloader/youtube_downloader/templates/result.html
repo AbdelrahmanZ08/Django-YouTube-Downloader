@@ -1,0 +1,21 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style-result.css' %}">
+{% endblock css %}
+ 
+{% block content %}
+<main class="main">
+  <div class="box">
+    <a class="close" href="{% url 'index' %}"><i class="fa-solid fa-circle-xmark"></i></a>
+    <div class="video-info">
+      <img src="{{thumbnail_url}}" alt="Thumbnail" class="thumbnail">
+      <p class="title">{{video_title}}</p>
+      <p class="author">{{channel_name}}</p>
+    </div>
+    <div class="download">
+      <div class="download"><a href="{{download_url}}">Download</a></div>
+    </div>
+  </div>
+</main>
+{% endblock content %}

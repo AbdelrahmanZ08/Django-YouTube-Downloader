@@ -1,0 +1,27 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style-index.css' %}">
+{% endblock css %}
+{% block content %}
+<main class="main">
+  <div class="box">
+    <form action="{% url 'result' %}" method="post" class="search-form">
+      {% csrf_token %}
+      <input class="search" type="text" name="video_url" 
+             placeholder="Enter YouTube URL" 
+             required>
+      <button class="search-button" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+    
+    {% if e %}
+      <span class="error">Error: {{e}}</span>
+
+    {% endif %}
+      
+  </div>
+
+</main>
+{% endblock content %}
